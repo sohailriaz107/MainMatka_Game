@@ -1,0 +1,178 @@
+<?php
+ini_set('session.cookie_lifetime', 2592000);  // 30 days in seconds
+session_start(); 
+	include("include/connect.php");
+    include("include/session.php");
+	include("include/functions.php");
+	
+if (isset($_POST['update_bank_details']) && isset($_SESSION['usr_id'])!="") {
+
+	        $user_id = $_SESSION['usr_id'];
+			$api_acess_token = mysqli_real_escape_string($con, $_POST['api_acess_token']);
+			
+			if($_SESSION['api_acess_token'] == $api_acess_token){
+			    //all ok
+			}else{
+			    echo "<script>window.location = 'update-bank-details.php?invalidrequest';</script>";
+			    exit;
+			}
+			
+			$result21 = mysqli_query($con, "SELECT account_number FROM users where id='$user_id'");
+
+				if($row21 = mysqli_fetch_array($result21)){
+					if($row21['account_number'] =='' || $row21['account_number'] ==NULL)
+					{
+						//do nothing
+					}else{
+						
+						echo "<script>alert('Contact Admin to Update Details');</script>";
+						echo "<script>window.location = 'update-bank-details.php?invalidrequest';</script>";
+						exit;
+					}
+				}
+				
+				
+				
+			
+            $account_number = mysqli_real_escape_string($con, $_POST['account_number']);
+            $ifsc = mysqli_real_escape_string($con, $_POST['ifsc']);
+            $bank_name = mysqli_real_escape_string($con, $_POST['bank_name']);
+            $account_holder_name = mysqli_real_escape_string($con, $_POST['account_holder_name']);
+			
+			$account_number = htmlspecialchars($account_number, ENT_QUOTES, 'UTF-8');
+			$ifsc = htmlspecialchars($ifsc, ENT_QUOTES, 'UTF-8');
+			$bank_name = htmlspecialchars($bank_name, ENT_QUOTES, 'UTF-8');
+			$account_holder_name = htmlspecialchars($account_holder_name, ENT_QUOTES, 'UTF-8');
+
+           $result22 = mysqli_query($con, "SELECT id FROM users where account_number='$account_number'");
+			if($row22 = mysqli_fetch_array($result22)){
+				echo "<script>alert('Account Number Already Exist.');</script>";
+				echo "<script>window.location = 'update-bank-details.php?invalidrequest';</script>";
+				exit;
+			
+			}
+			
+            $sql = "update users set account_number ='$account_number',
+            ifsc='$ifsc',
+			bank_name='$bank_name',
+            account_holder_name='$account_holder_name'
+            where id='$user_id'";
+		    $res = mysqli_query($con, $sql);
+            
+            echo "<script>window.location = 'update-bank-details.php?detailupdated';</script>";
+  
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Bank Details - <?php echo $site_title;?></title>
+    
+    <?php include("include/head.php"); ?>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        
+        <?php include("include/sidebar.php"); ?>
+        <div id="content">
+            <?php include("include/nav.php"); ?>
+            
+            <div class="container" >  
+            <div class="container py-4" >  
+            <div class="card shadow-lg border-0" style="border-radius: 20px; padding: 20px;">
+                <?php 
+                $user_id = $_SESSION['usr_id'];
+                $qry =  "SELECT * FROM users where id='".$user_id."'";
+                $user_info = mysqli_query($con, $qry);
+                while($row = mysqli_fetch_array($user_info)){
+                $account_holder_name = $row['account_holder_name'];
+                $account_number = $row['account_number'];
+                $ifsc = $row['ifsc'];
+                $bank_name = $row['bank_name'];
+                }
+                ?>
+                <div class="text-center mb-4 mt-2">
+                    <div style="width: 60px; height: 60px; background: #ebf4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <i class="fa fa-bank" style="font-size: 28px; color: #3182ce;"></i>
+                    </div>
+                    <h3 class="font-weight-bold" style="color: var(--primary-color);">Bank Details</h3>
+                    <span class="text-muted" style="font-size: 14px;">Update your withdrawal info</span>
+                </div>
+                
+                 <form action="" method="POST" autocomplete="off" class="mt-2">
+                  <div class="form-group mb-3">
+                    <label for="account_holder_name" class="text-secondary font-weight-bold" style="font-size:12px;">A/c Holder Name</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-user text-muted" style="width:20px;"></i></span>
+                        </div>
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_holder_name" value="<?php echo $account_holder_name;?>" maxlength="50" minlength="4" placeholder="Beneficiary name" id="account_holder_name" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="account_number" class="text-secondary font-weight-bold" style="font-size:12px;">Bank Account Number</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-hashtag text-muted" style="width:20px;"></i></span>
+                        </div>
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_number" value="<?php echo $account_number;?>" maxlength="25" minlength="4" placeholder="950000124587" id="account_number" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label for="ifsc" class="text-secondary font-weight-bold" style="font-size:12px;">IFSC Code</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-code text-muted" style="width:20px;"></i></span>
+                        </div>
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="ifsc" value="<?php echo $ifsc;?>" maxlength="11" minlength="11" placeholder="HDFC0000139" id="ifsc" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group mb-4">
+                    <label for="bank_name" class="text-secondary font-weight-bold" style="font-size:12px;">Bank Name</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-building text-muted" style="width:20px;"></i></span>
+                        </div>
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="bank_name" value="<?php echo $bank_name;?>" maxlength="25" minlength="3" placeholder="HDFC/SBI" id="bank_name" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                    </div>
+                  </div>
+                  
+                  <input type="hidden" name="api_acess_token" value="<?php echo $_SESSION['api_acess_token'];?>">
+                  <?php 
+                  if($account_holder_name =='' || $account_holder_name ==NULL){
+                  ?>        
+                  <button type="submit" name="update_bank_details" class="btn btn-theme py-3 font-weight-bold w-100 mb-3" style="border-radius: 15px; font-size: 16px;">Save Details <i class="fa fa-save ml-2"></i></button>
+                  <?php }else{?>
+                  <div class="alert alert-success text-center" style="border-radius: 12px;"><i class="fa fa-check-circle"></i> Bank Details Verified & Locked.</div>
+                  <button type="button" name="bank_details" class="btn btn-secondary py-3 font-weight-bold w-100 mb-3" style="border-radius: 15px; font-size: 16px;" disabled>Already Updated</button>
+                  <?php } ?>
+                </form> 
+                
+                <div class="text-center mt-2">
+                    <p class="text-muted mb-2" style="font-size: 13px;">Need to change verified details?</p>
+                    <a href="https://wa.me/<?php echo get_SettingValue('PWA_whatsapp2');?>" class="btn btn-outline w-100 font-weight-bold" style="border-radius: 15px;"><i class="fa fa-whatsapp text-success"></i> Contact Admin</a>
+                </div>
+
+            </div>
+            </div>
+      
+            
+        </div>
+    </div>
+    
+    <?php include("include/footer.php"); ?>
+
+</body>
+
+</html>
