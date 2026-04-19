@@ -44,15 +44,19 @@ session_start();
                  
             while ($row = mysqli_fetch_array($result)){
             ?> 
-            <div class="card shadow-sm border-0 mb-3 transition" style="border-radius: 16px;">
-                <div class="card-body p-3 d-flex align-items-start">
-                    <div style="width: 44px; height: 44px; border-radius: 12px; background: #fff5f5; color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-right: 15px; flex-shrink: 0;">
-                        <i class="fa fa-bullhorn"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                        <h6 class="mb-1 font-weight-bold text-dark" style="font-size:15px;"><?php echo $row['title'];?></h6>
-                        <p class="text-muted mb-2" style="font-size:13px; line-height:1.4;"><?php echo $row['description'];?></p>
-                        <small class="text-secondary font-weight-bold" style="font-size:11px;"><i class="fa fa-clock-o"></i> <?php echo date('d M Y, h:i A',strtotime($row['date'].' '.$row['time']));?></small>
+            <div class="card shadow-sm border-0 mb-3 transition notification-list-card" style="border-radius: 16px;">
+                <div class="card-body p-3">
+                    <div class="d-flex flex-row align-items-start notification-card-row notification-card__row">
+                        <div class="notification-card__icon flex-shrink-0">
+                            <img src="assets/icons/notification.png" alt="" class="notification-card__icon-img" width="40" height="40">
+                        </div>
+                        <div class="notification-card__main flex-grow-1 pl-0" style="min-width:0;">
+                            <div class="d-flex justify-content-between align-items-start notification-card__headline">
+                                <h6 class="mb-0 pr-2 font-weight-bold text-dark notification-card__title"><?php echo $row['title'];?></h6>
+                                <small class="notification-card__date flex-shrink-0 text-nowrap"><i class="fa fa-clock-o"></i> <?php echo date('d M Y, h:i A',strtotime($row['date'].' '.$row['time']));?></small>
+                            </div>
+                            <p class="mb-0 mt-2 notification-card__desc"><?php echo $row['description'];?></p>
+                        </div>
                     </div>
                 </div>
             </div>

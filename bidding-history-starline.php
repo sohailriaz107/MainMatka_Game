@@ -26,7 +26,7 @@ if($_GET['page'] >0)
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-bidding-history-starline">
 
     <div class="wrapper">
         

@@ -29,7 +29,7 @@ session_start();
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-game-dashboard">
 
     <div class="wrapper">
         
@@ -128,7 +128,7 @@ session_start();
                 <div class="row bidoptions-list tb-10">
                                 <div class="col-4">
                                   <a href="double-patti.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/double_patti.png">
+                                      <img src="assets/icons/double_patti.png">
                                       <p>Double Patti</p>
                                   </a>
                                 </div>

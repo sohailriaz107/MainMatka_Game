@@ -20,7 +20,7 @@ session_start();
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-support">
 
     <div class="wrapper">
         
@@ -29,12 +29,14 @@ session_start();
             <?php include("include/nav.php"); ?>
             
             <div class="container" > 
-            <div class="text-center tb-10 mt-3 mb-4">
-                <div style="width: 60px; height: 60px; background: #e6fffa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                    <i class="fa fa-headphones" style="font-size: 28px; color: #38a169;"></i>
+            <div class="card shadow-sm border-0 support-page-head mb-4">
+                <div class="card-body text-center py-4 px-3">
+                    <div class="support-page-head__icon mb-3">
+                        <img src="assets/icons/support.png" alt="" class="support-page-head__img" width="72" height="72">
+                    </div>
+                    <h3 class="font-weight-bold mb-2 support-page-head__title">Help & Support</h3>
+                    <span class="support-page-head__sub">Need help? Contact us 24/7</span>
                 </div>
-                <h3 class="font-weight-bold" style="color: var(--primary-color);">Help & Support</h3>
-                <span class="text-muted" style="font-size:13px;">Need help? Contact us 24/7</span>
             </div>
             
             <div class="pb-4">

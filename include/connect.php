@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 $site_title = 'MainMatka';
 $home_url = 'https://mainmatka.app/';    //url of home page
 $site_url = 'https://mainmatka.app/TCSBack2024/'; //backend url

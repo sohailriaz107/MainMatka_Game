@@ -77,7 +77,7 @@ if (isset($_POST['update_bank_details']) && isset($_SESSION['usr_id'])!="") {
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-bank-details">
 
     <div class="wrapper">
         
@@ -85,9 +85,8 @@ if (isset($_POST['update_bank_details']) && isset($_SESSION['usr_id'])!="") {
         <div id="content">
             <?php include("include/nav.php"); ?>
             
-            <div class="container" >  
-            <div class="container py-4" >  
-            <div class="card shadow-lg border-0" style="border-radius: 20px; padding: 20px;">
+            <div class="container bank-details-page py-3">
+            <div class="bank-details-card">
                 <?php 
                 $user_id = $_SESSION['usr_id'];
                 $qry =  "SELECT * FROM users where id='".$user_id."'";
@@ -99,52 +98,54 @@ if (isset($_POST['update_bank_details']) && isset($_SESSION['usr_id'])!="") {
                 $bank_name = $row['bank_name'];
                 }
                 ?>
-                <div class="text-center mb-4 mt-2">
-                    <div style="width: 60px; height: 60px; background: #ebf4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
-                        <i class="fa fa-bank" style="font-size: 28px; color: #3182ce;"></i>
+                <div class="bank-details-page__head">
+                    <div class="bank-details-page__head-icon">
+                        <img src="assets/icons/bank.png" width="28" height="28" alt="" decoding="async">
                     </div>
-                    <h3 class="font-weight-bold" style="color: var(--primary-color);">Bank Details</h3>
-                    <span class="text-muted" style="font-size: 14px;">Update your withdrawal info</span>
+                    <div class="bank-details-page__head-text">
+                        <h3 class="font-weight-bold">Bank Details</h3>
+                        <span class="text-muted">Update your withdrawal info</span>
+                    </div>
                 </div>
                 
                  <form action="" method="POST" autocomplete="off" class="mt-2">
                   <div class="form-group mb-3">
-                    <label for="account_holder_name" class="text-secondary font-weight-bold" style="font-size:12px;">A/c Holder Name</label>
+                    <label for="account_holder_name" class="text-secondary font-weight-bold">A/c Holder Name</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-user text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text bg-light border-right-0"><i class="fa fa-user text-muted"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_holder_name" value="<?php echo $account_holder_name;?>" maxlength="50" minlength="4" placeholder="Beneficiary name" id="account_holder_name" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_holder_name" value="<?php echo $account_holder_name;?>" maxlength="50" minlength="4" placeholder="Beneficiary name" id="account_holder_name" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-3">
-                    <label for="account_number" class="text-secondary font-weight-bold" style="font-size:12px;">Bank Account Number</label>
+                    <label for="account_number" class="text-secondary font-weight-bold">Bank Account Number</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-hashtag text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text bg-light border-right-0"><i class="fa fa-hashtag text-muted"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_number" value="<?php echo $account_number;?>" maxlength="25" minlength="4" placeholder="950000124587" id="account_number" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="account_number" value="<?php echo $account_number;?>" maxlength="25" minlength="4" placeholder="950000124587" id="account_number" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-3">
-                    <label for="ifsc" class="text-secondary font-weight-bold" style="font-size:12px;">IFSC Code</label>
+                    <label for="ifsc" class="text-secondary font-weight-bold">IFSC Code</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-code text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text bg-light border-right-0"><i class="fa fa-code text-muted"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="ifsc" value="<?php echo $ifsc;?>" maxlength="11" minlength="11" placeholder="HDFC0000139" id="ifsc" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="ifsc" value="<?php echo $ifsc;?>" maxlength="11" minlength="11" placeholder="HDFC0000139" id="ifsc" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-4">
-                    <label for="bank_name" class="text-secondary font-weight-bold" style="font-size:12px;">Bank Name</label>
+                    <label for="bank_name" class="text-secondary font-weight-bold">Bank Name</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-building text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text bg-light border-right-0"><i class="fa fa-building text-muted"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="bank_name" value="<?php echo $bank_name;?>" maxlength="25" minlength="3" placeholder="HDFC/SBI" id="bank_name" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="bank_name" value="<?php echo $bank_name;?>" maxlength="25" minlength="3" placeholder="HDFC/SBI" id="bank_name" autocomplete="off" required>
                     </div>
                   </div>
                   
@@ -152,21 +153,20 @@ if (isset($_POST['update_bank_details']) && isset($_SESSION['usr_id'])!="") {
                   <?php 
                   if($account_holder_name =='' || $account_holder_name ==NULL){
                   ?>        
-                  <button type="submit" name="update_bank_details" class="btn btn-theme py-3 font-weight-bold w-100 mb-3" style="border-radius: 15px; font-size: 16px;">Save Details <i class="fa fa-save ml-2"></i></button>
+                  <button type="submit" name="update_bank_details" class="btn btn-theme py-3 font-weight-bold w-100 mb-3">Save Details <i class="fa fa-save ml-2"></i></button>
                   <?php }else{?>
-                  <div class="alert alert-success text-center" style="border-radius: 12px;"><i class="fa fa-check-circle"></i> Bank Details Verified & Locked.</div>
-                  <button type="button" name="bank_details" class="btn btn-secondary py-3 font-weight-bold w-100 mb-3" style="border-radius: 15px; font-size: 16px;" disabled>Already Updated</button>
+                  <div class="alert alert-success text-center"><i class="fa fa-check-circle"></i> Bank Details Verified & Locked.</div>
+                  <button type="button" name="bank_details" class="btn btn-secondary py-3 font-weight-bold w-100 mb-3" disabled>Already Updated</button>
                   <?php } ?>
                 </form> 
                 
                 <div class="text-center mt-2">
-                    <p class="text-muted mb-2" style="font-size: 13px;">Need to change verified details?</p>
-                    <a href="https://wa.me/<?php echo get_SettingValue('PWA_whatsapp2');?>" class="btn btn-outline w-100 font-weight-bold" style="border-radius: 15px;"><i class="fa fa-whatsapp text-success"></i> Contact Admin</a>
+                    <p class="text-muted mb-2">Need to change verified details?</p>
+                    <a href="https://wa.me/<?php echo get_SettingValue('PWA_whatsapp2');?>" class="btn btn-outline w-100 font-weight-bold"><i class="fa fa-whatsapp text-success"></i> Contact Admin</a>
                 </div>
 
             </div>
             </div>
-      
             
         </div>
     </div>

@@ -45,7 +45,7 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-top-winner-list">
 
     <div class="wrapper">
         
@@ -53,11 +53,17 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
         <div id="content">
             <?php include("include/nav.php"); ?>
             
-            <div class="container" > 
-            <div class="tb-10" style="text-align:center;">
-                <h1 class="gdash3" style="font-size:22px;"> Top Starline Winner List</h1>
-                <span style="font-size:12px;">List of Today's top winners with amount</span>
-                
+            <div class="container">
+            <div class="top-winners-page">
+                <header class="top-winners-hero text-center">
+                    <div class="top-winners-hero__icon-wrap">
+                        <img src="assets/icons/top_winners.png" alt="" class="top-winners-hero__icon" width="80" height="80">
+                    </div>
+                    <h1 class="top-winners-hero__title">Top Starline Winner List</h1>
+                    <p class="top-winners-hero__sub">List of Today's top winners with amount</p>
+                </header>
+
+                <div class="top-winners-list">
         <?php
         $today_date = date('Y-m-d');
         $qry =  "SELECT * FROM user_transaction where date='$today_date' and type='win' and starline='1' order by amount+0 DESC limit 10";
@@ -75,24 +81,44 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
 
 			$masked_username = $visibleChars . $hiddenChars . $visibleCharsEnd; 
 		?>
-                <div class="card shadow-sm border-0 mb-3 transition" style="border-radius: 16px;">
-                    <div class="card-body p-3 d-flex align-items-center">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #FFD700, #FFA500); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-right: 15px; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);">
-                            <i class="fa fa-trophy"></i>
+                <div class="card top-winner-card shadow-sm border-0 mb-3">
+                    <div class="card-body top-winner-card__inner">
+
+                        <!-- Row 1: Trophy icon — top center -->
+                        <div class="top-winner-card__icon-row">
+                            <div class="top-winner-card__avatar">
+                                <i class="fa fa-trophy top-winner-card__trophy-ico"></i>
+                            </div>
                         </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1 font-weight-bold text-dark" style="font-size:16px;"><?php echo $masked_username;?></h6>
-                            <small class="text-muted d-block" style="font-size:12px;"><i class="fa fa-star"></i> <?php echo get_Starlinetime($row['game_id']);?> <span class="badge badge-light border">Digit: <?php echo $row['digit'];?></span></small>
-                            <small class="text-muted d-block" style="font-size:11px; margin-top:2px;"><i class="fa fa-clock-o"></i> <?php echo date('d M Y, h:i A',strtotime($row['date'].' '.$row['time']));?></small>
+
+                        <!-- Row 2: Masked username & Digit — left/right -->
+                        <div class="top-winner-card__name-row">
+                            <h6 class="top-winner-card__name"><?php echo $masked_username;?></h6>
+                            <span class="top-winner-card__digit-badge">Digit: <?php echo $row['digit'];?></span>
                         </div>
-                        <div class="text-right">
-                            <span class="d-block text-muted" style="font-size:11px;">Prize</span>
-                            <h6 class="mb-0 font-weight-bold" style="color:#38a169; font-size:16px;">₹<?php echo number_format($row['amount']*40,2);?></h6>
+
+                        <!-- Row 3: Game name (left) | Date+Time (right) -->
+                        <div class="top-winner-card__meta-row">
+                            <div class="top-winner-card__meta-left">
+                                <i class="fa fa-star top-winner-card__ico"></i>
+                                <small class="top-winner-card__meta"><?php echo get_Starlinetime($row['game_id']);?></small>
+                            </div>
+                            <div class="top-winner-card__meta-right">
+                                <i class="fa fa-clock-o top-winner-card__ico"></i>
+                                <small class="top-winner-card__time"><?php echo date('d M Y, h:i A',strtotime($row['date'].' '.$row['time']));?></small>
+                            </div>
                         </div>
+
+                        <!-- Row 4: Prize — center bottom -->
+                        <div class="top-winner-card__prize-block">
+                            <span class="top-winner-card__prize-label">PRIZE</span>
+                            <span class="top-winner-card__prize-amt">₹<?php echo number_format($row['amount']*40,2);?></span>
+                        </div>
+
                     </div>
                 </div>
         <?php } ?>
-        
+                </div>
             </div>
             </div>
       

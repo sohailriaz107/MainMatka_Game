@@ -125,7 +125,7 @@ if(isset($_POST['login'])){
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="auth-screen">
 
     <div class="wrapper">
         
@@ -133,43 +133,45 @@ if(isset($_POST['login'])){
         <div id="content">
             <?php include("include/nav.php"); ?>
             
-            
-            <div class="container d-flex flex-column justify-content-center" style="min-height: 80vh;">
-                <div class="card shadow-lg border-0" style="border-radius: 20px;">
-                    <div class="text-center mb-4 mt-2">
-                        <img src="assets/img/logo-fill.png" class="img-fluid mb-3" style="max-height: 80px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                        <h3 class="font-weight-bold" style="color: var(--primary-color);">Welcome Back!</h3>
-                        <span class="text-muted" style="font-size: 14px;">Sign in to continue</span>
+            <div class="auth-wrap">
+                <div class="auth-panel">
+                    <div class="auth-head">
+                        <!-- <img src="assets/img/logo-fill.png" class="auth-logo" alt="Logo"> -->
+                        <p class="auth-kicker">Welcome to</p>
+                        <h3 class="auth-brand">Online <span>Matka</span></h3>
                     </div>
                     
                     <form action="" method="POST">
                       <div class="form-group mb-3">
-                        <label for="mobile" class="text-secondary font-weight-bold" style="font-size:12px;">Mobile Number</label>
+                        <label for="mobile" class="auth-label">Mobile Number</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-phone text-muted" style="width:20px;"></i></span>
+                                <span class="input-group-text"><i class="fa fa-phone" ></i></span>
                             </div>
-                            <input type="text" class="form-control border-left-0 pl-0 bg-light" name="mobile" maxlength="10" minlength="10" placeholder="Enter 10 Digit Phone Number" id="mobile" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                            <input type="text" class="form-control" name="mobile" maxlength="10" minlength="10" placeholder="Enter 10 Digit Phone Number" id="mobile" autocomplete="off" required>
                         </div>
                       </div>
                       
-                      <div class="form-group mb-4">
-                        <label for="pwd" class="text-secondary font-weight-bold" style="font-size:12px;">Password</label>
+                      <div class="form-group mb-2">
+                        <label for="pwd" class="auth-label">Password</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-lock text-muted" style="width:20px;"></i></span>
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input type="password" class="form-control border-left-0 pl-0 bg-light" name="password" placeholder="Enter password" id="pwd" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                            <input type="password" class="form-control" name="password" placeholder="••••••••" id="pwd" autocomplete="off" required>
                         </div>
                       </div>
                       
-                      <button type="submit" class="btn btn-theme py-3 font-weight-bold w-100" style="font-size: 16px; border-radius: 12px;" name="login">Login Securely <i class="fa fa-arrow-right ml-2"></i></button>
+                      <!-- <div class="auth-row">
+                        <a class="auth-link" href="javascript:void(0)">Forgot password?</a>
+                      </div> -->
+                      
+                      <button type="submit" class="btn auth-btn w-100" name="login">Login</button>
                       <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($_GET['return_url']);?>">
                     </form> 
                     
-                    <div class="text-center mt-5 mb-2">
-                        <p class="text-muted mb-2" style="font-size: 14px;">Don't have an account?</p>
-                        <a href="register.php" class="btn btn-outline-primary w-100 font-weight-bold" style="border-radius: 12px; padding: 12px; border: 2px solid var(--primary-color); color: var(--primary-color);">Create Account</a>
+                    <div class="auth-foot">
+                        Don't Have An Account? <a href="register.php">Signup</a>
                     </div>
                 </div>
             </div>

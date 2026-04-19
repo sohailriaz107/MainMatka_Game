@@ -1,3 +1,4 @@
+
 <?php
 ini_set('session.cookie_lifetime', 2592000);  // 30 days in seconds
 session_start(); 
@@ -43,7 +44,7 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-starline-play">
 
     <div class="wrapper">
         
@@ -51,9 +52,13 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
         <div id="content">
             <?php include("include/nav.php"); ?>
 
-            <div id="scroll-container" class="noticebr"><div id="scroll-text"><?php echo get_SettingValue('app_notice');?></div></div>
+            <!-- <div id="scroll-container" class="noticebr">
+                <div class="notice-scroll-track notice-scroll-track--single">
+                    <span class="notice-scroll-seg"><?php echo get_SettingValue('app_notice'); ?></span>
+                </div>
+            </div> -->
             
-            <div class="container text-center " >    
+            <div class="container text-center mt-3 " >    
             <div class="tb-10">
                   <div class="row">
                     <div class="col-6">
@@ -89,7 +94,10 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
                 <?php
                 $games_list_qry =  "SELECT * FROM starline where 1";
 				$games = mysqli_query($con, $games_list_qry);
-                         while ($row = mysqli_fetch_array($games)){
+                if ($games && mysqli_num_rows($games) === 0) {
+                    echo '<p class="starline-play-empty text-center">Abhi koi Starline slot list mein nahi hai.</p>';
+                }
+                         while ($games && ($row = mysqli_fetch_array($games))){
                             $game_id = $row['id'];
                             $game_name = $row['name'];
                             $result = get_StarlineResult($game_id);

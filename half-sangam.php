@@ -136,7 +136,7 @@ if (isset($_POST['single_submit']) && isset($_SESSION['usr_id'])!="") {
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-half-sangam">
 
     <div class="wrapper">
         
@@ -202,6 +202,12 @@ if (isset($_POST['single_submit']) && isset($_SESSION['usr_id'])!="") {
 
                     ?>
                 <form action="" method="POST" class="myform" autocomplete="off">
+                <div class="text-center mb-4 mt-2">
+                    <h3 class="font-weight-bold text-uppercase" style="color: var(--primary-color); font-size: 20px;">
+                        <?php echo isset($game_name) ? $game_name : (isset($game_title) ? $game_title : "Play Game"); ?>
+                    </h3>
+                    <span class="text-muted" style="font-size: 13px;"><i class="fa fa-clock-o"></i> Select Market & Place Bid</span>
+                </div>
                 <?php if($default_bidding_game =='open'){ ?>
                 
                 <div class="row bidoptions-list tb-10">
@@ -289,10 +295,7 @@ if (isset($_POST['single_submit']) && isset($_SESSION['usr_id'])!="") {
                 <input type="hidden" name="dgame" value="<?php echo $default_game;?>">
                 
                 
-                
-                <br><br><br>
-                
-                <div class="row bidoptions-list tb-10">
+                <div class="row bidoptions-list tb-10 sangam-form-actions">
                                 <div class="col-6"> 
                                   <button class="btn btn-light btn-streched" onclick = "resetjsvar();" type="reset">Reset</button>
                                 </div>

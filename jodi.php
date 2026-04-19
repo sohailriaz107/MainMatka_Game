@@ -122,7 +122,7 @@ if (isset($_POST['single_submit']) && isset($_SESSION['usr_id'])!="") {
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="page-single-ank page-jodi">
 
     <div class="wrapper">
         

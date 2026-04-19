@@ -203,8 +203,14 @@ function get_StarlineResult($id) {
     $today = date('Y-m-d');
 	$sql = "SELECT digit FROM starline_result WHERE game_id='$id' and date='$today' limit 1";
 	$result = mysqli_query($con, $sql);
+	if (!$result) {
+		return '***';
+	}
 	$value = mysqli_fetch_object($result);
-	return $value->digit;
+	if ($value && isset($value->digit) && $value->digit !== null && $value->digit !== '') {
+		return $value->digit;
+	}
+	return '***';
 	}
 	
 function get_Starlinetime($id) {

@@ -194,7 +194,7 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
     <?php include("include/head.php"); ?>
 </head>
 
-<body>
+<body class="auth-screen">
 
     <div class="wrapper">
         
@@ -202,71 +202,70 @@ if (!isset($_SESSION['usr_id']) || !isset($_SESSION['usr_name']) || !isset($_SES
         <div id="content">
             <?php include("include/nav.php"); ?>
             
-            
-            <div class="container py-4">  
-            <div class="card shadow-lg border-0" style="border-radius: 20px;">
-                <div class="text-center mb-4 mt-2">
-                    <h3 class="font-weight-bold" style="color: var(--primary-color);">Create Account</h3>
-                    <span class="text-muted" style="font-size: 14px;">Join India's Most Trusted Platform</span>
+            <div class="auth-wrap">
+            <div class="auth-panel">
+                <div class="auth-head">
+                    <!-- <img src="assets/img/logo-fill.png" class="auth-logo" alt="Logo"> -->
+                    <p class="auth-kicker">Welcome to</p>
+                    <h3 class="auth-brand">Online <span>Matka</span></h3>
                 </div>
                 
                  <form action="" method="POST" autocomplete="off">
                   <div class="form-group mb-3">
-                    <label for="name" class="text-secondary font-weight-bold" style="font-size:12px;">Full Name</label>
+                    <label for="name" class="auth-label">Full Name</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-user text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="name" maxlength="50" minlength="4" placeholder="Enter Full Name" id="name" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control" name="name" maxlength="50" minlength="4" placeholder="Full name" id="name" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-3">
-                    <label for="username" class="text-secondary font-weight-bold" style="font-size:12px;">Username</label>
+                    <label for="username" class="auth-label">Username</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-id-badge text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="username" maxlength="25" minlength="4" placeholder="Unique Username" id="username" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control" name="username" maxlength="25" minlength="4" placeholder="username" id="username" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-3">
-                    <label for="mobile" class="text-secondary font-weight-bold" style="font-size:12px;">Mobile Number</label>
+                    <label for="mobile" class="auth-label">Mobile Number</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-phone text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input type="text" class="form-control border-left-0 pl-0 bg-light" name="mobile" maxlength="10" minlength="10" placeholder="Enter 10 Digit Phone Number" id="mobile" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="text" class="form-control" name="mobile" maxlength="10" minlength="10" placeholder="10 digit number" id="mobile" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-3">
-                    <label for="pwd" class="text-secondary font-weight-bold" style="font-size:12px;">Password</label>
+                    <label for="pwd" class="auth-label">Password</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-lock text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
                         </div>
-                        <input type="password" class="form-control border-left-0 pl-0 bg-light" name="password" placeholder="Enter password" id="pwd" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="password" class="form-control" name="password" placeholder="••••••••" id="pwd" autocomplete="off" required>
                     </div>
                   </div>
                   
                   <div class="form-group mb-4">
-                    <label for="cnpwd" class="text-secondary font-weight-bold" style="font-size:12px;">Confirm Password</label>
+                    <label for="cnpwd" class="auth-label">Confirm Password</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-light border-right-0" style="border-radius: 12px 0 0 12px; border-color: #e2e8f0;"><i class="fa fa-check-circle text-muted" style="width:20px;"></i></span>
+                            <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
                         </div>
-                        <input type="password" class="form-control border-left-0 pl-0 bg-light" name="confirmpassword" placeholder="Confirm password" id="cnpwd" autocomplete="off" required style="border-radius: 0 12px 12px 0;">
+                        <input type="password" class="form-control" name="confirmpassword" placeholder="••••••••" id="cnpwd" autocomplete="off" required>
                     </div>
                   </div>
                   
-                  <button type="submit" name="signup" class="btn btn-theme py-3 font-weight-bold w-100" style="font-size: 16px; border-radius: 12px;">Create Account <i class="fa fa-arrow-right ml-2"></i></button>
+                  <button type="submit" name="signup" class="btn auth-btn w-100">Signup</button>
                 </form> 
                 
-                <div class="text-center mt-5 mb-2">
-                    <p class="text-muted mb-2" style="font-size: 14px;">Already have an account?</p>
-                    <a href="login.php" class="btn btn-outline-primary w-100 font-weight-bold" style="border-radius: 12px; padding: 12px; border: 2px solid var(--primary-color); color: var(--primary-color);">Login Here</a>
+                <div class="auth-foot">
+                    Already have an account? <a href="login.php">Login</a>
                 </div>
 
             </div>
