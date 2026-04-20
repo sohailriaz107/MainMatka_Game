@@ -787,13 +787,15 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
 #sidebar{
   background:#000b1a!important;
   box-shadow:6px 0 24px rgba(0,0,0,.45)!important;
+  overflow-y:auto!important;
+  overflow-y:none!important;
 }
 #sidebar::-webkit-scrollbar-thumb{
   background:rgba(212,136,6,.35)!important;
 }
 #sidebar .sidebar-header{
   position:relative!important;
-  padding:48px 20px 26px!important;
+  padding:20px 20px 10px!important;
   text-align:center!important;
   border-bottom-right-radius:0!important;
   background-color:#000b1a!important;
@@ -805,9 +807,9 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
   border-bottom:1px solid rgba(26,42,58,.9);
 }
 #sidebar .sidebar-header .user-avatar{
-  width:64px!important;
-  height:64px!important;
-  margin:0 auto 14px!important;
+  width:50px!important;
+  height:50px!important;
+  margin:0 auto 8px!important;
   background:rgba(10,29,55,.85)!important;
   border:2px solid rgba(255,255,255,.35)!important;
   box-shadow:0 4px 14px rgba(0,0,0,.35);
@@ -865,7 +867,8 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
   color:#fff!important;
 }
 #sidebar ul.components{
-  padding:6px 0 12px!important;
+  padding:6px 0 0!important;
+  margin-bottom:0!important;
 }
 #sidebar ul.components > li{
   border-bottom:1px solid #1a2a3a;
@@ -876,7 +879,7 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
 #sidebar ul.components li > a{
   margin:0!important;
   border-radius:0!important;
-  padding:14px 16px!important;
+  padding:8px 16px!important;
   color:#fff!important;
   background:transparent!important;
   font-weight:600!important;
@@ -885,9 +888,9 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
 }
 #sidebar ul.components li > a > i,
 #sidebar ul.components li > a > span.sidebar-nav-icon-wrap{
-  width:44px!important;
-  height:44px!important;
-  min-width:44px!important;
+  width:36px!important;
+  height:36px!important;
+  min-width:36px!important;
   border-radius:50%!important;
   background:#0a1d37!important;
   color:#fff!important;
@@ -937,7 +940,7 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
   color:#fff!important;
 }
 #sidebar ul.CTAs{
-  padding:16px 14px 28px!important;
+  padding:6px 14px 20px!important;
   border-top:1px solid #1a2a3a!important;
   margin-top:0!important;
 }
@@ -966,7 +969,7 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
   border:1px solid rgba(255,255,255,.28)!important;
   border-radius:12px!important;
   font-weight:600!important;
-  padding:12px 16px!important;
+  padding:8px 16px!important;
 }
 #sidebar ul.CTAs a.article:hover{
   background:rgba(255,255,255,.06)!important;
