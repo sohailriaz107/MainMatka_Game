@@ -130,19 +130,19 @@ nav.navbar > .container-fluid > span{
   vertical-align:middle;
 }
 nav.navbar > .container-fluid > span::before{
-  content:"Online ";
+  content:"MainMatka";
   font-size:1.12rem!important;
   font-weight:700!important;
   color:#fff!important;
   letter-spacing:.02em;
 }
-nav.navbar > .container-fluid > span::after{
+/* nav.navbar > .container-fluid > span::after{
   content:"Matka";
   font-size:1.12rem!important;
   font-weight:700!important;
   color:var(--nav-gold)!important;
   letter-spacing:.02em;
-}
+} */
 nav.navbar .btn-white[href*="add-fund.php"]{
   background:transparent!important;
   border:2px solid var(--nav-gold)!important;
@@ -976,6 +976,142 @@ body:has(#old_password) #content .card button[name="change_password"]:hover{
   color:#fff!important;
 }
 
+/* withdraw.php — scoped with body.page-withdraw */
+body.page-withdraw {
+  overflow-y: auto!important;
+}
+body.page-withdraw #content > .container {
+  max-width: 440px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  padding-bottom: 24px!important;
+}
+body.page-withdraw .card {
+  background: rgba(5,10,24,.96)!important;
+  border: 1px solid rgba(212,136,6,.35)!important;
+  border-radius: 18px!important;
+  box-shadow: 0 8px 28px rgba(0,0,0,.4)!important;
+}
+body.page-withdraw h3.gdash3,
+body.page-withdraw .text-secondary,
+body.page-withdraw .text-muted,
+body.page-withdraw .withdraw-total-amt {
+  color: #fff!important;
+}
+body.page-withdraw .withdraw-total-summary small {
+  color: rgba(255,255,255,.65)!important;
+}
+body.page-withdraw .withdraw-total-amt {
+  font-size: 24px!important;
+  font-weight: 700!important;
+  color: #d48806!important;
+}
+body.page-withdraw .withdraw-page-icon {
+  width: 64px;
+  height: 64px;
+  background: #050a14;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #d48806;
+  font-size: 28px;
+  color: #d48806;
+}
+body.page-withdraw .withdraw-alert-info {
+  background: rgba(212,136,6,.12)!important;
+  border: 1px solid rgba(212,136,6,.35)!important;
+  color: #f0a030!important;
+  border-radius: 12px!important;
+  width: 75%!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+body.page-withdraw .withdraw-alert-bank {
+  background: rgba(220,53,69,.12)!important;
+  border: 1px solid rgba(220,53,69,.35)!important;
+  color: #ff6b6b!important;
+  border-radius: 12px!important;
+  width: 75%!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+body.page-withdraw .withdraw-btn-outline {
+  width: 75%!important;
+  margin: 0 auto 16px!important;
+  display: block!important;
+}
+body.page-withdraw .withdraw-label-amt {
+  color:#fff!important;
+  font-size:12px!important;
+  margin-bottom:8px!important;
+}
+body.page-withdraw .withdraw-input-amt {
+  background: #050a14!important;
+  border: 1px solid #d48806!important;
+  color: #fff!important;
+  padding: 12px 14px!important;
+  height: auto!important;
+  border-radius: 10px!important;
+  font-size: 16px!important;
+  box-shadow: none!important;
+}
+body.page-withdraw .withdraw-input-amt:focus {
+  background: #070f1c!important;
+  box-shadow: 0 0 0 2px rgba(212,136,6,.25)!important;
+}
+body.page-withdraw .withdraw-main-form {
+}
+body.page-withdraw .withdraw-submit-btn {
+  background: linear-gradient(180deg,#e8a024,#c97812)!important;
+  border: none!important;
+  color: #fff!important;
+  border-radius: 12px!important;
+  font-weight: 700!important;
+  letter-spacing: .04em;
+  box-shadow: 0 4px 14px rgba(212,136,6,.35);
+  font-size: 16px!important;
+  width: 75%!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  display: block!important;
+}
+body.page-withdraw .withdraw-submit-btn:hover {
+  filter: brightness(1.05);
+}
+body.page-withdraw .withdraw-support {
+  width: 75%!important;
+  margin: 0 auto!important;
+}
+body.page-withdraw .withdraw-support .withdraw-help-text {
+  color: rgba(255,255,255,.55)!important;
+}
+body.page-withdraw .withdraw-btn-wa {
+  background: rgba(37,211,102,.12)!important;
+  border: 1px solid rgba(37,211,102,.45)!important;
+  color: #25d366!important;
+  border-radius: 12px!important;
+  padding: 12px!important;
+}
+body.page-withdraw .withdraw-btn-wa:hover {
+  background: rgba(37,211,102,.2)!important;
+  color: #40f280!important;
+}
+body.page-withdraw .withdraw-btn-wa i {
+  color: #25d366!important;
+}
+body.page-withdraw .container > .text-center {
+  color: #fff;
+}
+body.page-withdraw .container > .text-center h3 {
+  color: #fff;
+  font-weight: 700;
+}
+body.page-withdraw .container > .text-center span {
+  color: rgba(255,255,255,.65);
+}
+
 /* support.php — body.page-support + Telegram link cards */
 body.page-support #content > .container{
   max-width:520px!important;
@@ -1655,14 +1791,30 @@ body.page-game-dashboard .card-full-page{
   min-height:auto!important;
 }
 body.page-game-dashboard .card-full-page .text-center.tb-10 .gdash3{
-  color:#fff!important;
-  font-weight:800!important;
-  font-size:1.25rem!important;
-  margin-bottom:6px!important;
+  color: #e8b84a!important;
+  font-weight: 800!important;
+  font-size: 1.5rem!important;
+  letter-spacing: .02em!important;
+  margin-bottom: 12px!important;
+  text-shadow: 0 4px 12px rgba(232,184,74,.25)!important;
 }
-body.page-game-dashboard .card-full-page .text-center.tb-10 span{
-  color:rgba(255,255,255,.75)!important;
-  font-size:14px!important;
+body.page-game-dashboard .card-full-page .game-dashboard-header {
+  margin-bottom: 24px!important;
+}
+body.page-game-dashboard .card-full-page .text-center.tb-10 .bidding-subtitle-wrap {
+  display: inline-block!important;
+  background: rgba(255,255,255,.08)!important;
+  border: 1px solid rgba(255,255,255,.2)!important;
+  border-radius: 8px!important;
+  padding: 6px 16px!important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3)!important;
+}
+body.page-game-dashboard .card-full-page .text-center.tb-10 span.bidding-subtitle{
+  color: #fff!important;
+  font-weight: 600!important;
+  font-size: 14px!important;
+  letter-spacing: .04em!important;
+  text-transform: uppercase!important;
 }
 body.page-game-dashboard .bidoptions-list.row{
   display:grid!important;
@@ -1703,17 +1855,17 @@ body.page-game-dashboard a.bidtypebox:focus{
   transform:translateY(-1px)!important;
 }
 body.page-game-dashboard a.bidtypebox img{
-  width:52px!important;
-  height:52px!important;
-  min-width:52px!important;
-  min-height:52px!important;
-  padding:10px!important;
+  width:72px!important;
+  height:72px!important;
+  min-width:72px!important;
+  min-height:72px!important;
+  padding:0!important;
   margin:0 0 10px!important;
   object-fit:contain!important;
-  background:linear-gradient(145deg,#e8b84a,#9a6f2a)!important;
-  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  border-radius:0!important;
   box-sizing:content-box!important;
-  box-shadow:0 2px 8px rgba(0,0,0,.35)!important;
 }
 body.page-game-dashboard a.bidtypebox p{
   color:#fff!important;
@@ -1726,6 +1878,28 @@ body.page-game-dashboard a.bidtypebox p{
 body.page-game-dashboard .tbmar-40.text-center span{
   color:rgba(255,255,255,.85)!important;
   font-size:13px!important;
+}
+body.page-game-dashboard .game-status-note {
+  background: linear-gradient(135deg, rgba(232,184,74,.18), rgba(212,136,6,.08))!important;
+  border: 1px solid rgba(232,184,74,.4)!important;
+  border-radius: 12px!important;
+  padding: 14px 20px!important;
+  color: #f0b24a!important;
+  font-weight: 600!important;
+  font-size: 15px!important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25)!important;
+  display: inline-block!important;
+  max-width: 90%!important;
+}
+body.page-game-dashboard .game-status-note i {
+  margin-right: 6px!important;
+  font-size: 18px!important;
+  vertical-align: middle!important;
+}
+body.page-game-dashboard .game-status-closed {
+  background: linear-gradient(135deg, rgba(220,53,69,.18), rgba(180,30,45,.08))!important;
+  border: 1px solid rgba(220,53,69,.4)!important;
+  color: #ff6b6b!important;
 }
 
 /* add-fund.php — body.page-add-fund */

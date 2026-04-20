@@ -41,9 +41,9 @@ session_start();
             <div class="container" >  
             <div class="card-full-page tb-10">
                 
-                <div class="text-center tb-10">
+                <div class="text-center tb-10 game-dashboard-header">
                     <h3 class="gdash3"><?php echo $game_title;?> Dashboard</h3>
-                    <span>Select Bidding Option</span>
+                    <div class="bidding-subtitle-wrap"><span class="bidding-subtitle">Select Bidding Option</span></div>
                 </div>
                 
                 <div class="tb-10">&nbsp;</div>
@@ -103,21 +103,21 @@ session_start();
                 <div class="row bidoptions-list tb-10">
                                 <div class="col-4">
                                   <a href="single.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/single.png">
+                                      <img src="assets/img/single_ank.png">
                                       <p>Single Ank</p>
                                   </a>
                                 </div>
                                 
                                 <div class="col-4">
                                   <a href="jodi.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/jodi.png">
+                                      <img src="assets/img/group.png">
                                       <p>Jodi</p>
                                   </a>
                                 </div>
                                 
                                 <div class="col-4">
                                   <a href="single-patti.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/single_patti.png">
+                                      <img src="assets/img/single.patti.png">
                                       <p>Single Patti</p>
                                   </a>
                                 </div>
@@ -128,21 +128,21 @@ session_start();
                 <div class="row bidoptions-list tb-10">
                                 <div class="col-4">
                                   <a href="double-patti.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/icons/double_patti.png">
+                                      <img src="assets/img/double.png">
                                       <p>Double Patti</p>
                                   </a>
                                 </div>
                                 
                                 <div class="col-4">
                                   <a href="triple-patti.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/triple_patti.png">
+                                      <img src="assets/img/tripple_patti.png">
                                       <p>Triple Patti</p>
                                   </a>
                                 </div>
                                 
                                 <div class="col-4">
                                   <a href="half-sangam.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/half_sangam.png">
+                                      <img src="assets/img/half.png">
                                       <p>Half Sangam</p>
                                   </a>
                                 </div>
@@ -157,7 +157,7 @@ session_start();
                                 
                                 <div class="col-4">
                                   <a href="full-sangam.php?gid=<?php echo $child_open;?>&pgid=<?php echo $game_id;?>&dgame=open" class="bidtypebox">
-                                      <img src="assets/img/full_sangam.png">
+                                      <img src="assets/img/full_singum.png">
                                       <p>Full Sangam</p>
                                   </a>
                                 </div>
@@ -170,8 +170,9 @@ session_start();
                 </div>
                 
                 <div class="tbmar-40 text-center">
-                    <span>Note: <?php echo $msg;?> </span>
-
+                    <div class="game-status-note">
+                        <i class="fa fa-info-circle"></i> Note: <?php echo $msg;?>
+                    </div>
                 </div>
                 
                 <?php }elseif($default_bidding_game =='close'){ ?>
@@ -179,20 +180,20 @@ session_start();
                 <div class="row bidoptions-list tb-10">
                                 <div class="col-4">
                                   <a href="single.php?gid=<?php echo $child_close;?>&pgid=<?php echo $game_id;?>&dgame=close" class="bidtypebox">
-                                      <img src="assets/img/single.png">
+                                      <img src="assets/img/single_ank.png">
                                       <p>Single Ank</p>
                                   </a>
                                 </div>
 
                                 <div class="col-4">
                                   <a href="single-patti.php?gid=<?php echo $child_close;?>&pgid=<?php echo $game_id;?>&dgame=close" class="bidtypebox">
-                                      <img src="assets/img/single_patti.png">
+                                      <img src="assets/img/single.patti.png">
                                       <p>Single Patti</p>
                                   </a>
                                 </div>
                                 <div class="col-4">
                                   <a href="double-patti.php?gid=<?php echo $child_close;?>&pgid=<?php echo $game_id;?>&dgame=close" class="bidtypebox">
-                                      <img src="assets/img/double_patti.png">
+                                      <img src="assets/img/double.png">
                                       <p>Double Patti</p>
                                   </a>
                                 </div>
@@ -207,7 +208,7 @@ session_start();
                                 
                                 <div class="col-4">
                                   <a href="triple-patti.php?gid=<?php echo $child_close;?>&pgid=<?php echo $game_id;?>&dgame=close" class="bidtypebox">
-                                      <img src="assets/img/triple_patti.png">
+                                      <img src="assets/img/tripple_patti.png">
                                       <p>Triple Patti</p>
                                   </a>
                                 </div>
@@ -220,16 +221,17 @@ session_start();
                 </div>
                 
                 <div class="tbmar-40 text-center">
-                    <span>Note: <?php echo $msg;?> </span>
-
+                    <div class="game-status-note">
+                        <i class="fa fa-info-circle"></i> Note: <?php echo $msg;?>
+                    </div>
                 </div>
                 
                 <?php }else{ ?>
                 
                 <div class="tbmar-40 text-center">
-                    <span>Sorry! Bidding is Close for <?php echo $game_title;?>. <br> Try again Tomorrow.</span>
-
-        
+                    <div class="game-status-note game-status-closed">
+                        <i class="fa fa-ban"></i> Sorry! Bidding is Close for <?php echo $game_title;?>. <br> Try again Tomorrow.
+                    </div>
                 </div>
                 
                 <?php } ?>
