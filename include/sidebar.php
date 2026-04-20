@@ -23,7 +23,7 @@
             </div>
 
             <ul class="list-unstyled components sideMenu">
-                <li<?php echo $sb_script === 'index.php' ? ' class="active"' : ''; ?>><a href="<?php echo SITEURL;?>"><span class="sidebar-nav-icon-wrap" aria-hidden="true"><img src="assets/icons/home.png" alt="" width="22" height="22" loading="lazy" decoding="async"></span><span>Home</span></a></li>
+                <li<?php echo $sb_script === 'index.php' ? ' class="active"' : ''; ?>><a href="<?php echo SITEURL; ?>"><span class="sidebar-nav-icon-wrap" aria-hidden="true"><img src="assets/icons/home.png" alt="" width="22" height="22" loading="lazy" decoding="async"></span><span>Home</span></a></li>
                 <li<?php echo $sb_script === 'support.php' ? ' class="active"' : ''; ?>><a href="support.php"><span class="sidebar-nav-icon-wrap" aria-hidden="true"><img src="assets/icons/support.png" alt="" width="22" height="22" loading="lazy" decoding="async"></span><span>Support</span></a></li>
                 <!-- <li><a href="transaction-history.php"> <i class="fa fa-list-alt"></i> <span>Transaction History</span></a></li>
                 <li><a href="bidding-history.php"> <i class="fa fa-history"></i> <span>Bidding History</span></a></li>
