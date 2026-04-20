@@ -144,6 +144,7 @@ include("include/functions.php");
             letter-spacing: .02em;
             line-height: 1.35;
             margin-bottom: 4px;
+            color: darkgoldenrod;
         }
 
         .status-badge {
@@ -506,7 +507,7 @@ include("include/functions.php");
                                     <button type="button" class="game-card__info" data-toggle="modal" data-target="#gameTimeModal<?php echo $game_id; ?>" aria-label="Info"><i class="fa fa-info-circle"></i></button>
                                 </div>
                                 <div class="game-result"><?php echo $result; ?></div>
-                                <div class="game-card__meta">Open BIDS <?php echo $open_time; ?> &nbsp;|&nbsp; Close BIDS <?php echo $close_time; ?></div>
+                                <div class="game-card__meta"> <?php echo $open_time; ?> &nbsp;|&nbsp;  <?php echo $close_time; ?></div>
                                 <?php if ($bidding_status) { ?>
                                     <div class="status-badge running"><?php echo htmlspecialchars($msg, ENT_QUOTES, 'UTF-8'); ?></div>
                                 <?php } else { ?>
